@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Router } from 'react-router';
+
+
 import {
   Switch,
   Route,
@@ -6,15 +9,25 @@ import {
   Link
 } from 'react-router-dom';
 
+
 export class App extends Component {
+
+
   render() {
+   
     return (
       <div>
-        <nav>
-          {/*Aca deben ir los links de navegacion*/}
-        </nav>
-        {/* Aca tienes que agreager algo para que las rutas funcionen*/}
-      </div>
+      <nav>
+      <Link to="page1">Page1</Link>
+      <Link to="page2">Page2</Link>      
+      </nav>
+      <Switch>
+      <Route path="/" exact component={Page1} />
+      <Route path="/page1" component={Page1} />
+      <Route path="/page2" component={Page2} />
+      <Route component={NotFound}/>
+      </Switch>
+    </div>
     )
   }
 }
